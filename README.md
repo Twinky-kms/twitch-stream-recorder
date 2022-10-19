@@ -1,10 +1,13 @@
-# Ancalentari Twitch Stream Recorder
-This script allows you to record twitch streams live to .mp4 files.  
-It is an improved version of [junian's twitch-recorder](https://gist.github.com/junian/b41dd8e544bf0e3980c971b0d015f5f6), migrated to [**helix**](https://dev.twitch.tv/docs/api) - the new twitch API. It uses OAuth2.
+# Ancalentari Twitch Stream Recorder and YouTube Uploader
+This script allows you to record twitch streams live to .mp4 files and then upload them to YouTube.
+
+This is a modified version of [Ancalentari Twitch Stream Recorder](https://github.com/ancalentari/twitch-stream-recorder)
+which is an improved version of [junian's twitch-recorder](https://gist.github.com/junian/b41dd8e544bf0e3980c971b0d015f5f6), migrated to [**helix**](https://dev.twitch.tv/docs/api) - the new twitch API. It uses OAuth2.
 ## Requirements
-1. [python3.8](https://www.python.org/downloads/release/python-380/) or higher  
+1. [python3.8](https://www.python.org/downloads/release/python-380/)  
 2. [streamlink](https://streamlink.github.io/)  
 3. [ffmpeg](https://ffmpeg.org/)
+4. [youtube-upload configured](https://github.com/tokland/youtube-upload)
 
 ## Setting up
 1) Check if you have latest version of streamlink:
@@ -15,6 +18,7 @@ It is an improved version of [junian's twitch-recorder](https://gist.github.com/
 2) Install `requests` module [if you don't have it](https://pypi.org/project/requests/)  
    * Windows:    ```python -m pip install requests```  
    * Linux:      ```python3.8 -m pip install requests```
+
 3) Create `config.py` file in the same directory as `twitch-recorder.py` with:
 ```properties
 root_path = "/home/abathur/Videos/twitch"
