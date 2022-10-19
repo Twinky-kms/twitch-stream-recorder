@@ -12,7 +12,6 @@ import requests
 
 import config
 
-
 class TwitchResponseStatus(enum.Enum):
     ONLINE = 0
     OFFLINE = 1
@@ -23,6 +22,8 @@ class TwitchResponseStatus(enum.Enum):
 
 class TwitchRecorder:
     def __init__(self):
+        #youtube upload configuration
+        self.python_path="python3.8"
         # global configuration
         self.ffmpeg_path = "ffmpeg"
         self.disable_ffmpeg = False
@@ -95,6 +96,24 @@ class TwitchRecorder:
                 [self.ffmpeg_path, "-err_detect", "ignore_err", "-i", recorded_filename, "-c", "copy",
                  processed_filename])
             os.remove(recorded_filename)
+            self.upload_vod(processed_filename, processed_filename)
+        except Exception as e:
+            logging.error(e)
+    
+    def upload_vod(self, processed_file_path, title):
+        try:
+            logging.info("Starting upload")
+            title = title[len(os.path.join(self.root_path, "processed", self.username, self.username)):]
+            if(len(title) > 99):
+                title = title[len(title) - 100:]
+            subprocess.call([f"{self.python_path}",
+            "/usr/bin/youtube-upload",
+            f'--title={title}',
+            '--description="description"',
+            '--privacy=private',
+
+            f"{processed_file_path}"
+            ])
         except Exception as e:
             logging.error(e)
 
@@ -161,7 +180,6 @@ class TwitchRecorder:
 
                 logging.info("processing is done, going back to checking...")
                 time.sleep(self.refresh)
-
 
 def main(argv):
     twitch_recorder = TwitchRecorder()

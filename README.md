@@ -1,11 +1,18 @@
+# auto-upload-vods
+A combination of 2 scripts to automatically upload twitch vods.
+
+# scripts
+[Ancalentari Twitch Stream Recorder](https://github.com/ancalentari/twitch-stream-recorder)
+[Youtube Upload](https://github.com/tokland/youtube-upload)
+
 # Ancalentari Twitch Stream Recorder
 This script allows you to record twitch streams live to .mp4 files.  
 It is an improved version of [junian's twitch-recorder](https://gist.github.com/junian/b41dd8e544bf0e3980c971b0d015f5f6), migrated to [**helix**](https://dev.twitch.tv/docs/api) - the new twitch API. It uses OAuth2.
 ## Requirements
-1. [python3.8](https://www.python.org/downloads/release/python-380/) or higher  
+1. [python3.8](https://www.python.org/downloads/release/python-380/)  
 2. [streamlink](https://streamlink.github.io/)  
 3. [ffmpeg](https://ffmpeg.org/)
-
+4. [youtube-upload configured]()
 ## Setting up
 1) Check if you have latest version of streamlink:
     * `streamlink --version` shows current version
