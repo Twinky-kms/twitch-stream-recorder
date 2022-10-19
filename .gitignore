@@ -76,3 +76,4 @@ venv
 config.py
 twitch-recorder.log
 youtube-upload-master/bin/file_example_MP4_480_1_5MG.mp4
+__pycache__/config.cpython-38.pyc
